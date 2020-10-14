@@ -25,7 +25,7 @@ $ source venv/bin/activate
 $ pip3 install pdfminer
 ```
 
-5. to deactivate virtual enviroment
+5. To deactivate virtual enviroment
 ```bash
 $ deactivate
 ```
