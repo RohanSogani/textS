@@ -1,6 +1,7 @@
 # textS
 
-A place to get the summary of your research documents.
+A place to get the summary of a research paper.
+Intend to use the text summarization domain of Natural Language Processing.
 
 ## Dev Guide
 
