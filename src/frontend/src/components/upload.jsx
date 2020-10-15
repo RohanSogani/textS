@@ -39,23 +39,21 @@ class Upload extends Component {
 
     render() {
         return (
-            <div>
-                <div className="container">
-	                <div className="row">
-	                    <div className="col-md-6">
-	                        <form method="post" action="#" id="#">
-                                <div className="form-group files">
-                                    <label>Upload Your File </label>
-                                    <input type="file" className="form-control" multiple="" onChange={this.onChangeHandler}/>
-                                </div>
-                                <div class="form-group">
-                                    <ToastContainer />
-                                    <Progress max="100" color="success" value={this.state.loaded} >{Math.round(this.state.loaded,2) }%</Progress>
-                                </div>
-                                <button type="button" className="btn btn-s btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-                            </form>
-	                    </div>
-	                </div>
+            <div className="container" style={{"margin-left": 0}}>
+                <div className="row">
+                    <div className="col-md-6">
+                        <form method="post" action="#" id="#">
+                            <div className="form-group files">
+                                <label>Upload Your File </label>
+                                <input type="file" className="form-control" multiple="" onChange={this.onChangeHandler}/>
+                            </div>
+                            <div className="form-group">
+                                <ToastContainer />
+                                <Progress max="100" color="success" value={this.state.loaded} >{Math.round(this.state.loaded,2) }%</Progress>
+                            </div>
+                            <button type="button" className="btn btn-s btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
