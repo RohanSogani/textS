@@ -1,10 +1,14 @@
 import React from 'react';
 import Upload from './components/upload'
 import './App.css';
+import NavBar from './components/navbar';
 
 function App() {
   return (
-    <Upload/>
+    <div>
+      <NavBar/>
+      <Upload/>
+    </div>
   );
 }
 

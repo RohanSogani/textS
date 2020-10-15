@@ -42,7 +42,7 @@ class Upload extends Component {
             <div>
                 <div className="container">
 	                <div className="row">
-	                    <div className="offset-md-3 col-md-6">
+	                    <div className="col-md-6">
 	                        <form method="post" action="#" id="#">
                                 <div className="form-group files">
                                     <label>Upload Your File </label>

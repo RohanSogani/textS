@@ -10,7 +10,7 @@ let storage = multer.diskStorage({
         cb(null, 'public')
     },
     filename: function(req, file, cb) {
-        cb(null, Date.now() + '_' + file.originalname)
+        cb(null, + file.originalname)
     }
 });
 
@@ -25,8 +25,8 @@ app.post('/upload', function(req, res) {
         }
     })
     return res.status(200).send(req.file)
-})
+});
 
 app.listen(8000, function() {
     console.log('App is running on port 8000');
-})
+});
