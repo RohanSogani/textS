@@ -4,8 +4,12 @@ A place to get the summary of a research paper.
 Intend to use the text summarization domain of Natural Language Processing.
 
 ## Backend Cleaning Activities
-1. extractArchive.py
+1. extractArchive.py<br>
+Extracts research papers from the arXiv dataset based on the cs.DC taxonomy 
+(Distributed, Parallel, and Cluster Computing). 
 2. convertPDF.py
+Converts an input pdf to text and then converts the texts into sentences that 
+our model requires.
 
 ## Backend: Dev Guide
 
