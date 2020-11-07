@@ -3,6 +3,10 @@
 A place to get the summary of a research paper.
 Intend to use the text summarization domain of Natural Language Processing.
 
+## Backend Cleaning Activities
+1. extractArchive.py
+2. convertPDF.py
+
 ## Backend: Dev Guide
 
 1. We plan to use virtual environment to keep track of this project

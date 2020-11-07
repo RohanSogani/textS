@@ -30,11 +30,11 @@ def convert_pdf_to_txt(path):
     return text
 
 def main():
-    if len(sys.argv) is not 2:
+    if len(sys.argv) != 2:
         print("Usage: convertPDF.py <path_to_PDF_File>")
         exit(0)
 
-    pdf_path =  str(sys.argv[-1])
+    pdf_path = str(sys.argv[-1])
     print(pdf_path)
 
     text = convert_pdf_to_txt(pdf_path)
