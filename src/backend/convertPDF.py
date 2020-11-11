@@ -1,8 +1,10 @@
 import sys
+import nltk
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
+from nltk import sent_tokenize
 from io import StringIO
 
 def convert_pdf_to_txt(path):
@@ -29,6 +31,21 @@ def convert_pdf_to_txt(path):
     ret_str.close()
     return text
 
+def create_sentences(text):
+    """
+    Converts the input text into sentences, also removes stop words 
+    """
+    from nltk.corpus import stopwords
+    nltk.download('stopwords')
+    from nltk.tokenize import word_tokenize
+    sentences = sent_tokenize(text)
+    print("There are ", len(sentences), "sentences in this paper")
+    for i in range(0, 1):
+        text_tokens = word_tokenize(sentences[50])
+        tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
+        sentences[i] = (" ").join(tokens_without_sw)
+    return sentences
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: convertPDF.py <path_to_PDF_File>")
@@ -36,25 +53,11 @@ def main():
 
     pdf_path = str(sys.argv[-1])
     print(pdf_path)
-
+    nltk.download('punkt')
     text = convert_pdf_to_txt(pdf_path)
-    no_references = text.split("References")
-    no_references = no_references[0]
-    print(len(no_references))
-
-    print(no_references)
-    sentences = no_references.split(".")
-    print(f'''The length of sentences is {len(sentences)}''')
-    final_sentences = []
-    for s in sentences:
-        remove_newline = s.split("\n")
-        for r in remove_newline:
-            if r == "":
-                continue
-            final_sentences.append(r)
-
-    print(f'''The final number of sentences is {len(final_sentences)}''')
-    print(final_sentences)
+    # Remove references and further
+    text = text.split("References")[0]
+    sentences = create_sentences(text)
 
 if __name__ == "__main__":
     main()
