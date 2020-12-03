@@ -1,0 +1,13 @@
+#Skeleton for calling tfds script by passing text(text for of the research paper) to it and recieving the summary
+import requests 
+  
+URL = "TBD"
+
+DATA = "Text of the research paper" 
+
+r = requests.post(url = URL, data = DATA) 
+  
+summary = r.text 
+
+  
+  
