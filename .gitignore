@@ -2,3 +2,6 @@
 .idea/
 venv/
 src/arxiv-metadata-oai-snapshot.json
+src/pegasus/.DS_Store
+src/pegasus/pegasus/.DS_Store
+src/backend/convert_arxiv.py

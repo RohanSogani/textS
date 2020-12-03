@@ -12,8 +12,8 @@ Subset contains papers only from CS.CR, CS.DB, & CS.DC.
 _CITATION = """
 """
 
-_DOCUMENT = "article"
-_SUMMARY = "abstract"
+_DOCUMENT = "input"
+_SUMMARY = "targets"
 
 class Arxiv(tfds.core.GeneratorBasedBuilder):
   """DatasetBuilder for arxiv dataset."""
@@ -31,8 +31,8 @@ class Arxiv(tfds.core.GeneratorBasedBuilder):
         features=tfds.features.FeaturesDict({
             # These are the features of your dataset like images, labels ...
             _DOCUMENT: tfds.features.Text(),
-            _SUMMARY: tfds.features.Text(),
-            "section_names": tfds.features.Text(),
+            _SUMMARY: tfds.features.Text()
+            # "section_names": tfds.features.Text(),
         }),
         # If there's a common (input, target) tuple from the
         # features, specify them here. They'll be used if
@@ -70,6 +70,6 @@ class Arxiv(tfds.core.GeneratorBasedBuilder):
           summary = summary.replace("<S>", "").replace("</S", "")
           yield d["article_id"], {
             _DOCUMENT: "\n".join(d["article_text"]),
-            _SUMMARY: summary,
-            "section_names": "\n".join(d["section_names"])
+            _SUMMARY: summary
+            # "section_names": "\n".join(d["section_names"])
           }
