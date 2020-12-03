@@ -298,7 +298,7 @@ def billsum_transformer(param_overrides):
 
 @registry.register("arxiv_new_transformer")
 def arxiv_transformer(param_overrides):
-    import arxiv
+    from pegasus.params import arxiv
     import tensorflow_datasets as tfds
     ds = tfds.load('arxiv')
     return transformer_params(
