@@ -12,6 +12,8 @@ with open("id.txt") as ids:
         # print(l)
         l = l.strip()
         ids_map[str(l)] = True
+        l = l.replace("/", "")
+        ids_map[str(l)] = True
 
 with open("train.txt") as train, open('new_train.txt', 'a') as the_file:
     for l in train:
@@ -19,8 +21,11 @@ with open("train.txt") as train, open('new_train.txt', 'a') as the_file:
         split_l = l.split('\"article_id\"')
         id_raw = split_l[1].split(',')
         id_clean = id_raw[0].strip(':')
+        id_clean = id_clean.strip()
         id_clean = id_clean.replace('"', "")
+        print(id_clean)
         if str(id_clean) in ids_map:
+            print("***************Match Found -->", id_clean)
             the_file.write(l)
 
 print("Time Taken ==> ", (time.time() - start_time)/60)
