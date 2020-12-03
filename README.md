@@ -28,9 +28,9 @@ $ virtualenv venv
 $ source venv/bin/activate
 ```
 
-4. Install the below libraries
+4. Install libraries from requirement.txt
 ```bash
-$ pip3 install pdfminer
+$ pip3 install -r requirements.txt
 ```
 
 5. To deactivate virtual enviroment
