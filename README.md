@@ -15,11 +15,6 @@ our model requires.
 3. arxiv folder <br>
 Used to create a fraction of arxiv data set, the dataset sizes are as follows
 ~1000 articles train-set, ~50 articles for val-set and ~30 articles for test-set<br>
-Usage
-``bash
-$ cd arxiv
-$ tfds build
-```
 
 ## Backend: Dev Guide
 
