@@ -295,3 +295,17 @@ def billsum_transformer(param_overrides):
           "learning_rate": 0.0001,
           "batch_size": 8,
       }, param_overrides)
+
+@registry.register("arxiv_new_transformer")
+def arxiv_transformer(param_overrides):
+  return transformer_params(
+      {
+          "train_pattern": "tfds:arxiv/arxiv-train",
+          "dev_pattern": "tfds:arxiv/arxiv-validation",
+          "test_pattern": "tfds:arxiv/arxiv-test",
+          "max_input_len": 1024,
+          "max_output_len": 256,
+          "train_steps": 500000,
+          "learning_rate": 0.0001,
+          "batch_size": 8,
+      }, param_overrides)
