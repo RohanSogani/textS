@@ -24,5 +24,3 @@ with open("train.txt") as train, open('new_train.txt', 'a') as the_file:
             the_file.write(l)
 
 print("Time Taken ==> ", (time.time() - start_time)/60)
-
-
