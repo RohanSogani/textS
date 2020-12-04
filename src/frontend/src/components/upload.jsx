@@ -23,8 +23,12 @@ class Upload extends Component {
 
     onClickHandler = () => {
         const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        axios.post("http://localhost:8000/upload", data,  {
+        let name = String(this.state.selectedFile.name)
+        name = name.split('.')
+        data.append('title', name)
+        data.append('content', name)
+        data.append('pdf', this.state.selectedFile);
+        axios.post("http://localhost:8000/api/upload/", data,  {
             onUploadProgress: ProgressEvent => {
                 this.setState({
                     loaded: (ProgressEvent.loaded / ProgressEvent.total * 100),
