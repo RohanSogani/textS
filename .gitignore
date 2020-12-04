@@ -1,7 +1,10 @@
-.DS_Store/
+.DS_Store
 .idea/
 venv/
+arxiv/__pycache__/
 src/arxiv-metadata-oai-snapshot.json
 src/pegasus/.DS_Store
 src/pegasus/pegasus/.DS_Store
 src/backend/convert_arxiv.py
+src/backend/src/core/__pycache__/
+src/backend/src/upload/__pycache__/

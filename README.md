@@ -6,7 +6,7 @@ Intend to use the text summarization domain of Natural Language Processing.
 ## Backend Folders
 1. Scripts<br>
 Contains scripts used for various cleaning and parsing activities
-    1. extractArchive.py
+    1. extractArchive.py <br>
     Extracts research papers from the arXiv dataset based on the cs.DC taxonomy 
 (Distributed, Parallel, and Cluster Computing).
     2. convertPDF.py <br>
