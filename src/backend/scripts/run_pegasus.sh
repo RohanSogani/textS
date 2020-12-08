@@ -1,6 +1,8 @@
-python3 home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py random
+#!/bin/bash
 
-cd home/ecs289gnlp/textS/src/pegasus/
+python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py random
+
+cd /home/ecs289gnlp/textS/src/pegasus/
 export PYTHONPATH=.
 
 python3 ./pegasus/bin/evaluate.py \
