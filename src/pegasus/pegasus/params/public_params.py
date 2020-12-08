@@ -251,7 +251,7 @@ def xsum_transformer(param_overrides):
 #           "batch_size": 8,
 #       }, param_overrides)
 
-save_path = "tfrecord:~/textS/src/pegasus/pegasus/data/testdata/input.tfrecord"
+save_path = "tfrecord:/home/ecs289gnlp/textS/src/pegasus/pegasus/data/testdata/input.tfrecord"
 @registry.register("arxiv_transformer")
 def arxiv_transformer(param_overrides):
   return transformer_params(
