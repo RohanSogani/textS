@@ -39,7 +39,7 @@ def create_sentences(text):
     nltk.download('stopwords')
     from nltk.tokenize import word_tokenize
     sentences = sent_tokenize(text)
-    print("There are ", len(sentences), "sentences in this paper")
+    # print("There are ", len(sentences), "sentences in this paper")
     for i in range(0, 1):
         text_tokens = word_tokenize(sentences[50])
         tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
@@ -52,7 +52,7 @@ def main():
         exit(0)
 
     pdf_path = str(sys.argv[-1])
-    print(pdf_path)
+    # print(pdf_path)
     nltk.download('punkt')
     text = convert_pdf_to_txt(pdf_path)
     # Remove references and further
@@ -64,7 +64,7 @@ def main():
     file_name = file_name.split('.')
     file_name = file_name[0] + ".txt"
     file_name = path_prefix + file_name
-    print(file_name)
+    # print(file_name)
     with open(file_name, 'w') as f:
         for item in sentences:
             f.write("%s\n" % item)

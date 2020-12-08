@@ -20,6 +20,7 @@ class UploadView(APIView):
 
     def post(self, request, *args, **kwargs):
         upload_serializer = PostSerializer(data=request.data)
+        request.data['txt'] = ""
         file_name = str(request.data['pdf'])
         if upload_serializer.is_valid():
             upload_serializer.save()
@@ -35,8 +36,14 @@ class UploadView(APIView):
             cmd = "sh " + BASE_DIR + "src/backend/scripts/run_pegasus.sh " + txt_file_path
 
             os.system(cmd)
-            print(upload_serializer.data)
-            return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
+            copy_file = BASE_DIR + "src/pegasus/ckpt/pegasus_ckpt/arxiv/predictions-340000-.dev.txt"
+            return_txt = ""
+            with open(copy_file, 'r') as file:
+                return_txt = file.read().replace('\n', '')
+            # print(return_txt)
+            request.data['txt'] = return_txt
+            # print(upload_serializer.data)
+            return Response(return_txt, status=status.HTTP_201_CREATED)
         else:
             print("Error", upload_serializer.errors)
             return Response(upload_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -36,6 +36,7 @@ class Upload extends Component {
             }
         }).then(res => {
             toast.success('Upload success')
+            document.getElementById("textarea1").value = res.data
         }).catch(err => {
             toast.error('Upload fail')
         })
@@ -56,6 +57,10 @@ class Upload extends Component {
                                 <Progress max="100" color="success" value={this.state.loaded} >{Math.round(this.state.loaded,2) }%</Progress>
                             </div>
                             <button type="button" className="btn btn-s btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+                            <div className="form-group files">
+                                <label>Summary </label>
+                                <textarea id="textarea1"/>
+                            </div>
                         </form>
                     </div>
                 </div>
