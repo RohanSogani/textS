@@ -20,9 +20,10 @@ class UploadView(APIView):
     def post(self, request, *args, **kwargs):
         upload_serializer = PostSerializer(data=request.data)
         file_name = str(request.data.pdf)
-        cmd = "sh /home/ecs289gnlp/textS/src/backend/scripts/run_pegasus.sh"
         if upload_serializer.is_valid():
             upload_serializer.save()
+            cmd = "sh /home/ecs289gnlp/textS/src/backend/scripts/run_pegasus.sh"
+            os.system(cmd)
             return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
         else:
             print("Error", upload_serializer.errors)
