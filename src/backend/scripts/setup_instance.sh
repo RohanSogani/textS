@@ -1,7 +1,5 @@
 #!/bin/bash
 
-git clone https://github.com/RohanSogani/textS.git
-
 sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get -y install python3-pip
