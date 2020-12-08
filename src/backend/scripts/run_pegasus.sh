@@ -1,6 +1,12 @@
 #!/bin/bash
 
-python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py random
+inputFilePath=$1
+echo "Input file path: $inputFilePath"
+
+inputString=`cat "$inputFilePath"`
+echo "Input string: $inputString"
+
+python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py "$inputString"
 
 cd /home/ecs289gnlp/textS/src/pegasus/
 export PYTHONPATH=.
