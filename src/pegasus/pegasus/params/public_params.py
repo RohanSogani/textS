@@ -237,13 +237,28 @@ def xsum_transformer(param_overrides):
       }, param_overrides)
 
 
+# @registry.register("arxiv_transformer")
+# def arxiv_transformer(param_overrides):
+#   return transformer_params(
+#       {
+#           "train_pattern": "tfds:scientific_papers/arxiv-train",
+#           "dev_pattern": "tfds:scientific_papers/arxiv-validation",
+#           "test_pattern": "tfds:scientific_papers/arxiv-test",
+#           "max_input_len": 1024,
+#           "max_output_len": 256,
+#           "train_steps": 500000,
+#           "learning_rate": 0.0001,
+#           "batch_size": 8,
+#       }, param_overrides)
+
+save_path = "tfrecord:~/textS/src/pegasus/pegasus/data/testdata/input.tfrecord"
 @registry.register("arxiv_transformer")
 def arxiv_transformer(param_overrides):
   return transformer_params(
       {
-          "train_pattern": "tfds:scientific_papers/arxiv-train",
-          "dev_pattern": "tfds:scientific_papers/arxiv-validation",
-          "test_pattern": "tfds:scientific_papers/arxiv-test",
+          "train_pattern": save_path,
+          "dev_pattern": save_path,
+          "test_pattern": save_path,
           "max_input_len": 1024,
           "max_output_len": 256,
           "train_steps": 500000,
