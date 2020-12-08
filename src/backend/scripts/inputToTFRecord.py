@@ -7,7 +7,7 @@ input_dict = dict(
     targets=[""]
     )
 
-save_path = "~/textS/src/pegasus/pegasus/data/testdata/test_pattern_1.tfrecord"
+save_path = "/home/ecs289gnlp/textS/src/pegasus/pegasus/data/testdata/input.tfrecord"
 data = pd.DataFrame(input_dict)
 with tf.io.TFRecordWriter(save_path) as writer:
     for row in data.values:
