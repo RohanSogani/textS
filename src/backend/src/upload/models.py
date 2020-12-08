@@ -10,7 +10,7 @@ class Upload(models.Model):
     def __str__(self):
         return self.title
 
-class Summary(modes.Model):
+class Summary(models.Model):
     title = models.CharField(max_length=100)
     summary = models.TextField()
 
