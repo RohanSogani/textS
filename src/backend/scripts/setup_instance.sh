@@ -6,10 +6,6 @@ sudo apt-get -y install python3-pip
 
 pip3 install --upgrade pip
 
-cd ../pegasus/
+pip3 install -r /home/ecs289gnlp/textS/src/pegasus/requirements.txt
 
-pip3 install -r requirements.txt
-
-cd ../../
-
-pip3 install -r requirements.txt
+pip3 install -r /home/ecs289gnlp/textS/requirements.txt
