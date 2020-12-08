@@ -24,10 +24,20 @@ class UploadView(APIView):
         if upload_serializer.is_valid():
             upload_serializer.save()
             pdf_file_path = BASE_DIR + "backend/src/media/post_pdfs/" + file_name
+
             cmd_convert_pdf = "python3 " + BASE_DIR + "src/backend/scripts/convertPDF.py " + pdf_file_path
-            cmd = "sh " BASE_DIR + "src/backend/scripts/run_pegasus.sh " + pdf_file_path
+
+            file_name = file_name.split(".")
+            file_name = file_name[0] + ".txt"
+            txt_file_path = BASE_DIR + "backend/src/media/post_pdfs/" + file_name
+            cmd = "sh " BASE_DIR + "src/backend/scripts/run_pegasus.sh " + txt_file_path
+
             os.system(cmd)
-            return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
+            print(upload_serializer.data)
+            summary_serializer = SummarySerializer()
+            #
+            print(summary_serializer.data)
+            return Response(summary_serializer.data, status=status.HTTP_201_CREATED)
         else:
             print("Error", upload_serializer.errors)
             return Response(upload_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
