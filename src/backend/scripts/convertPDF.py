@@ -58,6 +58,16 @@ def main():
     # Remove references and further
     text = text.split("References")[0]
     sentences = create_sentences(text)
+    path_prefix = "/home/ecs289gnlp/textS/src/backend/src/media/post_pdfs/"
+    file_name = pdf_path.split("/")
+    file_name = file_name[-1]
+    file_name = file_name.split('.')
+    file_name = file_name[0] + ".txt"
+    file_name = path_prefix + file_name
+    print(file_name)
+    with open(file_name, 'w') as f:
+        for item in sentences:
+            f.write("%s\n" % item)
 
 if __name__ == "__main__":
     main()

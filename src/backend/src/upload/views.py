@@ -5,6 +5,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render
+import os
 
 # Create your views here.
 
@@ -15,9 +16,11 @@ class UploadView(APIView):
         uploads = Upload.objects.all()
         serializer = PostSerializer(uploads, many=True)
         return Response(serializer.data)
-    
+
     def post(self, request, *args, **kwargs):
         upload_serializer = PostSerializer(data=request.data)
+        file_name = str(request.data.pdf)
+        cmd = "sh /home/ecs289gnlp/textS/src/backend/scripts/run_pegasus.sh"
         if upload_serializer.is_valid():
             upload_serializer.save()
             return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
