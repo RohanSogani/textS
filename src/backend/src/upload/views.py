@@ -30,7 +30,7 @@ class UploadView(APIView):
             file_name = file_name.split(".")
             file_name = file_name[0] + ".txt"
             txt_file_path = BASE_DIR + "backend/src/media/post_pdfs/" + file_name
-            cmd = "sh " BASE_DIR + "src/backend/scripts/run_pegasus.sh " + txt_file_path
+            cmd = "sh " + BASE_DIR + "src/backend/scripts/run_pegasus.sh " + txt_file_path
 
             os.system(cmd)
             print(upload_serializer.data)
