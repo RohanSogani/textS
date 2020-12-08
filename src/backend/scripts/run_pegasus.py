@@ -1,6 +1,7 @@
-python3 ~/textS/src/backend/scripts/inputToTFRecord.py random
+python3 home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py random
 
-cd ~/textS/src/pegasus/
+cd home/ecs289gnlp/textS/src/pegasus/
+export PYTHONPATH=.
 
 python3 ./pegasus/bin/evaluate.py \
 --params=arxiv_transformer \
