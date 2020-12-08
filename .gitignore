@@ -3,6 +3,7 @@
 venv/
 arxiv/__pycache__/
 src/arxiv-metadata-oai-snapshot.json
+src/frontend/package-lock.json
 src/pegasus/.DS_Store
 src/pegasus/pegasus/.DS_Store
 src/backend/convert_arxiv.py

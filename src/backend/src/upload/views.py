@@ -8,6 +8,7 @@ from django.shortcuts import render
 import os
 
 # Create your views here.
+BASE_DIR = "/home/ecs289gnlp/textS/"
 
 class UploadView(APIView):
     parser_classes = (MultiPartParser, FormParser)
@@ -19,10 +20,12 @@ class UploadView(APIView):
 
     def post(self, request, *args, **kwargs):
         upload_serializer = PostSerializer(data=request.data)
-        file_name = str(request.data.pdf)
+        file_name = str(request.data['pdf'])
         if upload_serializer.is_valid():
             upload_serializer.save()
-            cmd = "sh /home/ecs289gnlp/textS/src/backend/scripts/run_pegasus.sh"
+            pdf_file_path = BASE_DIR + "backend/src/media/post_pdfs/" + file_name
+            cmd_convert_pdf = "python3 " + BASE_DIR + "src/backend/scripts/convertPDF.py " + pdf_file_path
+            cmd = "sh " BASE_DIR + "src/backend/scripts/run_pegasus.sh " + pdf_file_path
             os.system(cmd)
             return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
         else:
