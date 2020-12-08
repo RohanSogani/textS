@@ -34,10 +34,7 @@ class UploadView(APIView):
 
             os.system(cmd)
             print(upload_serializer.data)
-            summary_serializer = SummarySerializer()
-            #
-            print(summary_serializer.data)
-            return Response(summary_serializer.data, status=status.HTTP_201_CREATED)
+            return Response(upload_serializer.data, status=status.HTTP_201_CREATED)
         else:
             print("Error", upload_serializer.errors)
             return Response(upload_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
