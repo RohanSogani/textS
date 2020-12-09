@@ -26,14 +26,7 @@ class UploadView(APIView):
             upload_serializer.save()
             pdf_file_path = BASE_DIR + "src/backend/src/media/post_pdfs/" + file_name
 
-            cmd_convert_pdf = "python3 " + BASE_DIR + "src/backend/scripts/convertPDF.py " + pdf_file_path
-
-            os.system(cmd_convert_pdf)
-
-            file_name = file_name.split(".")
-            file_name = file_name[0] + ".txt"
-            txt_file_path = BASE_DIR + "src/backend/src/media/post_pdfs/" + file_name
-            cmd = "sh " + BASE_DIR + "src/backend/scripts/run_pegasus.sh " + txt_file_path
+            cmd = "sh " + BASE_DIR + "src/backend/scripts/run_pegasus.sh " + pdf_file_path
 
             os.system(cmd)
             copy_file = BASE_DIR + "src/pegasus/ckpt/pegasus_ckpt/arxiv/predictions-340000-.dev.txt"

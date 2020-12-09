@@ -1,12 +1,9 @@
 #!/bin/bash
 
-inputFilePath=$1
-echo "Input file path: $inputFilePath"
+inputPDFFilePath=$1
+echo "Input PDF file path: $inputPDFFilePath"
 
-inputString=`cat "$inputFilePath"`
-echo "Input string: $inputString"
-
-python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py "$inputString"
+python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py "$inputPDFFilePath"
 
 cd /home/ecs289gnlp/textS/src/pegasus/
 export PYTHONPATH=.
