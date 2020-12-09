@@ -44,6 +44,7 @@ def create_sentences(text):
         text_tokens = word_tokenize(sentences[50])
         tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
         sentences[i] = (" ").join(tokens_without_sw)
+    print(sentences)
     return sentences
 
 def main():

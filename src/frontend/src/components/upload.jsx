@@ -43,6 +43,15 @@ class Upload extends Component {
     }
 
     render() {
+        const style = {
+            height:'500px',
+            width:'700px',
+            padding:'9px',
+            boxSizing:'border-box',
+            fontSize:'15px'};
+        const v1 = {
+            borderLeft: '2px solid green',
+        }
         return (
             <div className="container" style={{"margin-left": 0}}>
                 <div className="row">
@@ -57,9 +66,13 @@ class Upload extends Component {
                                 <Progress max="100" color="success" value={this.state.loaded} >{Math.round(this.state.loaded,2) }%</Progress>
                             </div>
                             <button type="button" className="btn btn-s btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-                            <div className="form-group files">
-                                <label>Summary </label>
-                                <textarea id="textarea1"/>
+                        </form>
+                    </div>
+                    <div className="col-md-6">
+                        <form>
+                            <div className="form-group">
+                                <label>Summary</label>
+                                <textarea id="textarea1" style={style}/>
                             </div>
                         </form>
                     </div>
