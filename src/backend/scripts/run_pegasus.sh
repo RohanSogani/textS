@@ -1,10 +1,12 @@
 #!/bin/bash
 
-inputFilePath=$1
-echo "Input file path: $inputFilePath"
+inputString = $1
 
-inputString=`cat "$inputFilePath"`
-echo "Input string: $inputString"
+# inputFilePath=$1
+# echo "Input file path: $inputFilePath"
+
+# inputString=`cat "$inputFilePath"`
+# echo "Input string: $inputString"
 
 python3 /home/ecs289gnlp/textS/src/backend/scripts/inputToTFRecord.py "$inputString"
 
