@@ -51,8 +51,8 @@ def create_sentences(text):
 
 def main():
     if len(sys.argv) != 2:
-            print("Usage: inputToTFRecord.py <path_to_PDF_File>")
-            exit(0)
+        print("Usage: inputToTFRecord.py <path_to_PDF_File>")
+        exit(0)
 
     pdf_path = str(sys.argv[-1])
     # print(pdf_path)
@@ -68,7 +68,7 @@ def main():
     input_dict = dict(
         inputs=[sentences],
         targets=[""]
-        )
+    )
 
     save_path = "/home/ecs289gnlp/textS/src/pegasus/pegasus/data/testdata/input.tfrecord"
     data = pd.DataFrame(input_dict)
