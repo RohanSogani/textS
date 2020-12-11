@@ -8,8 +8,37 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from nltk import sent_tokenize
 from io import StringIO
-import backend.scripts.convertPDF as convert
 import json
+
+def convert_pdf_to_txt(path):
+    """
+    Converts the input pdf file to a plain text
+    """
+    print("random**************************************************")
+    p = pdfbox.PDFBox()
+    p.extract_text(path)   # writes text to /path/to/my_file.txt
+    
+
+def create_sentences(text):
+    """
+    Converts the input text into sentences, also removes stop words 
+    """
+    print("random**************************************************")
+    from nltk.corpus import stopwords
+    nltk.download('stopwords')
+    from nltk.tokenize import sent_tokenize
+    from nltk.tokenize import word_tokenize
+    sentences = sent_tokenize(text)
+    # print(sentences)
+    # print("There are ", len(sentences), "sentences in this paper")
+    final_sentences = []
+    ''' for i in range(0, len(sentences)):
+        text_tokens = word_tokenize(sentences[i])
+        tokens_without_sw = [word for word in text_tokens if not word in stopwords.words()]
+        final_sentences.append((" ").join(tokens_without_sw))
+    print(final_sentences) '''
+    return sentences
+
 
 def main():
     if len(sys.argv) != 2:
@@ -18,7 +47,7 @@ def main():
 
     pdf_path = str(sys.argv[-1])
    
-    convert.convert_pdf_to_txt(pdf_path)
+    convert_pdf_to_txt(pdf_path)
 
     path_prefix = ""
     file_name = pdf_path.split("/")
@@ -47,7 +76,7 @@ def main():
     # Split at before Introduction and after References
     one_text = one_text.split("Introduction")[1]
     one_text = one_text.split("References")[0]
-    sentences = convert.create_sentences(one_text)
+    sentences = create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
     #print(type(sentences))
