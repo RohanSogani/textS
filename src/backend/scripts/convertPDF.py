@@ -98,7 +98,8 @@ def main():
     sentences = create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
-    print(sentences)
+    print(type(sentences))
+    #print(sentences)
 
 if __name__ == "__main__":
     main()
