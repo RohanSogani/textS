@@ -2,13 +2,14 @@ import pandas as pd
 import tensorflow as tf
 import sys
 import nltk
+import json
+import pdfbox
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from nltk import sent_tokenize
 from io import StringIO
-import json
 
 def convert_pdf_to_txt(path):
     """
@@ -46,15 +47,9 @@ def main():
         exit(0)
 
     pdf_path = str(sys.argv[-1])
-   
     convert_pdf_to_txt(pdf_path)
-
-    path_prefix = ""
-    file_name = pdf_path.split("/")
-    file_name = file_name[-1]
-    file_name = file_name.split('.')
+    file_name = pdf_path.split(".")
     file_name = file_name[0] + ".txt"
-    file_name = path_prefix + file_name
     print(file_name)
     text = ""
     with open(file_name, 'r') as f:
@@ -64,15 +59,14 @@ def main():
                 line = line.rstrip("-")
             else:
                 line = line + " "
-            text += line  
-        print(len(line)) # 
+            text += line
+        print(len(line)) #
         # remove \n and create a list of strings
         #text = f.read().splitlines()
 
     # merge all strings in list to one big string for sentence tokenize
     one_text = ""
     one_text = "".join(text)
-    
     # Split at before Introduction and after References
     one_text = one_text.split("Introduction")[1]
     one_text = one_text.split("References")[0]
