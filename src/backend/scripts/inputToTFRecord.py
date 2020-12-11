@@ -24,7 +24,7 @@ def main():
     input = input.replace("\'", "\"")
 
     input_dict = dict(
-        inputs=[sentences],
+        inputs=[input],
         targets=[""]
     )
 
