@@ -77,8 +77,16 @@ def main():
     print(file_name)
     text = ""
     with open(file_name, 'r') as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if line[-1] == "-":
+                line = line.rstrip("-")
+            else:
+                line = line + " "
+            text += line  
+        print(len(line)) # 
         # remove \n and create a list of strings
-        text = f.read().splitlines()
+        #text = f.read().splitlines()
 
     # merge all strings in list to one big string for sentence tokenize
     one_text = ""
@@ -90,7 +98,7 @@ def main():
     sentences = create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
-    # print(sentences[-1])
+    print(sentences)
 
 if __name__ == "__main__":
     main()
