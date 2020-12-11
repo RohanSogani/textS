@@ -19,7 +19,9 @@ def main():
    
     text = convert.convert_pdf_to_txt(pdf_path)
 
-    sentences = convert.create_sentences(text)  
+    sentences = convert.create_sentences(text)
+    input = str(sentences)
+    input = input.replace("\'", "\"")
 
     input_dict = dict(
         inputs=[sentences],
