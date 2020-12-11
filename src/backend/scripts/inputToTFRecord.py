@@ -50,14 +50,16 @@ def main():
     sentences = convert.create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
-    print(type(sentences))
+    #print(type(sentences))
+    sentences = str(sentences)
+    #print(sentences)
 
 
     ''' input = str(sentences)
     input = input.replace("\'", "\"") '''
 
     input_dict = dict(
-        inputs=sentences,
+        inputs=[sentences],
         targets=[""]
     )
 

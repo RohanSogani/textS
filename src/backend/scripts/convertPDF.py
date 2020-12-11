@@ -31,7 +31,7 @@ def convert_pdf_to_txt(path):
     fp.close()
     device.close()
     ret_str.close() '''
-
+    print("random**************************************************")
     p = pdfbox.PDFBox()
     p.extract_text(path)   # writes text to /path/to/my_file.txt
     
@@ -40,6 +40,7 @@ def create_sentences(text):
     """
     Converts the input text into sentences, also removes stop words 
     """
+    print("random**************************************************")
     from nltk.corpus import stopwords
     nltk.download('stopwords')
     from nltk.tokenize import sent_tokenize
@@ -98,8 +99,9 @@ def main():
     sentences = create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
-    print(type(sentences))
+    sentences = str(sentences)
     #print(sentences)
+    print(type(sentences))
 
 if __name__ == "__main__":
     main()
