@@ -16,6 +16,4 @@ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 
 sudo apt-get install -y nodejs
 
-sudo apt install default-jre
-
-sudo apt install default-jdk
+sudo apt install openjdk-11-jdk
