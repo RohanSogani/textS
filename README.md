@@ -1,4 +1,4 @@
-# textS :newspaper: :page_with_curl:
+# textS :newspaper: :rocket:
 
 A lightweight Natural Language Processing application that
 provides rich summaries of Research Papers.
