@@ -3,7 +3,7 @@
 A place to get the summary of a research paper.
 Intend to use the text summarization domain of Natural Language Processing.
 
-## Backend Folders
+## Important Folders
 1. Scripts<br>
 Contains scripts used for various cleaning and parsing activities
     1. extractArchive.py <br>
@@ -12,6 +12,8 @@ Contains scripts used for various cleaning and parsing activities
     2. convertPDF.py <br>
 Converts an input pdf to text and then converts the texts into sentences that 
 our model requires.
+    3. inputToTFRecord.py <br>
+Converts an input text to TFRecord
 
 2. arxiv <br>
 Used to create a fraction of arxiv data set, the dataset sizes are as follows
@@ -45,10 +47,9 @@ $ pip3 install -r requirements.txt
 5. To run Django Backend
 ```bash
 $ cd src/backend/src
-$ python3 manage.py createsuperuser "Run this once"
 $ python3 manage.py makemigrations
 $ python3 manage.py migrate
-$ python3 manage.py runserver
+$ python3 manage.py runserver 0.0.0.0:8000
 ```
 
 6. If you wish to deactivate virtual enviroment
