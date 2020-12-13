@@ -1,7 +1,7 @@
 # textS
 
-A place to get the summary of a research paper.
-Intend to use the text summarization domain of Natural Language Processing.
+A lightweight Natural Language Processing application that
+provides rich summaries of Research Papers.
 
 ## Important Folders
 1. Scripts<br>
@@ -17,7 +17,8 @@ Converts an input text to TFRecord
 
 2. arxiv <br>
 Used to create a fraction of arxiv data set, the dataset sizes are as follows
-~1000 articles train-set, ~50 articles for val-set and ~30 articles for test-set<br>
+~1000 articles train-set, ~50 articles for val-set and ~30 articles for 
+test-set<br>
 
 3. src <br>
 Contains the main source for Django BackEnd and React FrontEnd
