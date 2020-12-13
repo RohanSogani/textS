@@ -1,10 +1,10 @@
-# textS
+# textS :newspaper: :page_with_curl:
 
 A lightweight Natural Language Processing application that
 provides rich summaries of Research Papers.
 
 ## Important Folders
-1. Scripts<br>
+1. scripts<br>
 Contains scripts used for various cleaning and parsing activities
     1. extractArchive.py <br>
     Extracts research papers from the arXiv dataset based on the cs.DC taxonomy 
@@ -14,6 +14,8 @@ Converts an input pdf to text and then converts the texts into sentences that
 our model requires.
     3. inputToTFRecord.py <br>
 Converts an input text to TFRecord
+    4. run_pegasus.sh <br>
+Endpoint that allows to run the pegasus model, accepts 1 PDF File Path as input
 
 2. arxiv <br>
 Used to create a fraction of arxiv data set, the dataset sizes are as follows
@@ -22,6 +24,19 @@ test-set<br>
 
 3. src <br>
 Contains the main source for Django BackEnd and React FrontEnd
+
+### Create GCP Instance
+```bash
+gcloud compute instances create \
+  ${VM_NAME} \
+  --zone=${ZONE} \
+  --machine-type=n1-highmem-8 \
+  --accelerator type=nvidia-tesla-v100,count=1 \
+  --boot-disk-size=500GB \
+  --image-project=ml-images \
+  --image-family=tf-1-15 \
+  --maintenance-policy TERMINATE --restart-on-failure
+```
 
 ## Backend: Dev Guide
 
