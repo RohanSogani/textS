@@ -75,7 +75,7 @@ def main():
     # Put \n before every sentence
     important_string = "\n".join(map(str, sentences))
     # Put spaces before and after punctuations
-    important_string.sub('([.,!?()])', r' \1 ', important_string)
+    important_string = re.sub('([.,!?()])', r' \1 ', important_string)
     important_string = re.sub('\s{2,}', ' ', important_string)
     # convert everything to lowercase
     important_string = important_string.lower()
