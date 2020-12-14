@@ -53,7 +53,7 @@ def transformer_params(patterns, param_overrides):
       num_heads=16,
       num_encoder_layers=16,
       num_decoder_layers=16,
-      beam_size=1,
+      beam_size=8,
       beam_start=5,
       beam_alpha=0.8,
       beam_min=0,
