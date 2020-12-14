@@ -39,8 +39,8 @@ class UploadView(APIView):
                 # skip first
                 if flag == 1:
                     flag = 0
-                    continue
-                return_txt = file.read().replace('\n', '')
+                else:
+                    return_txt = file.read().replace('\n', '')
             # print(return_txt)
             print("\n" + textwrap.fill(return_txt))
             sentences = sent_tokenizer.tokenize(return_txt)
