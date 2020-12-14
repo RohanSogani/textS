@@ -34,22 +34,19 @@ class UploadView(APIView):
             os.system(cmd)
             copy_file = BASE_DIR + "src/pegasus/ckpt/pegasus_ckpt/arxiv/predictions-340000-.dev.txt"
             return_txt = ""
-            flag = 1
+            # flag = 1
             with open(copy_file, 'r') as file:
-                # skip first
-                if flag == 1:
-                    flag = 0
-                else:
-                    return_txt = file.read().replace('\n', '')
-            # print(return_txt)
-            print("\n" + textwrap.fill(return_txt))
-            sentences = sent_tokenizer.tokenize(return_txt)
-            sentences = [sent.capitalize() for sent in sentences]
-            # pprint(sentences)
-            final_text = " ".join(sentences)
-            request.data['txt'] = final_text
-            # print(upload_serializer.data)
-            return Response(sentences, status=status.HTTP_201_CREATED)
+                return_txt = file.read().replace('\n', '')
+            print(return_txt)
+            # print("\n" + textwrap.fill(return_txt))
+            # sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+            # sentences = sent_tokenizer.tokenize(return_txt)
+            # sentences = [sent.capitalize() for sent in sentences]
+            # # pprint(sentences)
+            # final_text = " ".join(sentences)
+            # request.data['txt'] = final_text
+            # # print(upload_serializer.data)
+            return Response(return_txt, status=status.HTTP_201_CREATED)
         else:
             print("Error", upload_serializer.errors)
             return Response(upload_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
