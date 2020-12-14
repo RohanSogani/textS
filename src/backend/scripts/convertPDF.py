@@ -85,23 +85,24 @@ def main():
             else:
                 line = line + " "
             text += line  
-        print(len(line)) # 
+        # print(len(line)) # 
         # remove \n and create a list of strings
         #text = f.read().splitlines()
 
     # merge all strings in list to one big string for sentence tokenize
     one_text = ""
     one_text = "".join(text)
-    
+    print(one_text)
+
     # Split at before Introduction and after References
-    one_text = one_text.split("Introduction")[1]
+    one_text = one_text.split("Introduction")
     one_text = one_text.split("References")[0]
     sentences = create_sentences(one_text)
     # Convert single quotes to double quotes
     sentences = json.dumps(sentences)
     sentences = str(sentences)
     #print(sentences)
-    print(type(sentences))
+    print(sentences)
 
 if __name__ == "__main__":
     main()

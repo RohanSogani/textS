@@ -4,6 +4,7 @@ import sys
 import nltk
 import json
 import pdfbox
+import re
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
@@ -18,7 +19,6 @@ def convert_pdf_to_txt(path):
     print("random**************************************************")
     p = pdfbox.PDFBox()
     p.extract_text(path)   # writes text to /path/to/my_file.txt
-    
 
 def create_sentences(text):
     """
@@ -71,18 +71,17 @@ def main():
     one_text = one_text.split("Introduction")[1]
     one_text = one_text.split("References")[0]
     sentences = create_sentences(one_text)
-    # Convert single quotes to double quotes
-    sentences = json.dumps(sentences)
-    #print(type(sentences))
-    sentences = str(sentences)
-    #print(sentences)
 
-
-    ''' input = str(sentences)
-    input = input.replace("\'", "\"") '''
+    # Put \n before every sentence
+    important_string = "\n".join(map(str, sentences))
+    # Put spaces before and after punctuations
+    important_string.sub('([.,!?()])', r' \1 ', important_string)
+    important_string = re.sub('\s{2,}', ' ', important_string)
+    # convert everything to lowercase
+    important_string = important_string.lower()
 
     input_dict = dict(
-        inputs=[sentences],
+        inputs=[important_string],
         targets=[""]
     )
 
